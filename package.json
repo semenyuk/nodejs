@@ -22,9 +22,7 @@
     "swagger-ui-express": "^4.1.2"
   },
   "nodemonConfig": {
-    "watch": [
-      "src/*"
-    ],
-    "delay": "1000"
+    "delay": "500",
+    "ext": "js,json"
   }
 }

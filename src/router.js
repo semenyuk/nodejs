@@ -6,7 +6,7 @@ const router = Router();
 router.get('/', (req, res) => res.send('Hello World!'));
 
 router.get('/api/v1/readme', (req, res, next) => {
-    fs.readFile('./README1.md', (err, data) => {
+    fs.readFile('./README.md', (err, data) => {
         if (err) {
             return next(err);
         }
