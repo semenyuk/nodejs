@@ -4,7 +4,7 @@ const router = require('./router');
 const swaggerDocument = require('../swagger.json');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 app.use('/api/v1/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
