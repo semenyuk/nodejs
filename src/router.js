@@ -1,7 +1,11 @@
 const fs = require('fs');
 const { Router } = require('express');
+const book = require('../controllers/book');
 
 const router = Router();
+
+
+router.get('/api/v1/books', book.getAll);
 
 router.get('/', (req, res) => res.send('Hello World!'));
 

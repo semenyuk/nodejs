@@ -20,6 +20,14 @@
           "200": {}
         }
       }
+    },
+    "/api/v1/books": {
+      "get": {
+        "summary": "books",
+        "responses": {
+          "200": {}
+        }
+      }
     }
   }
 }

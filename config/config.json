@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "books_user",
+    "password": "password",
+    "database": "books",
+    "host": "mysql",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "books_user",
+    "password": "password",
+    "database": "books",
+    "host": "mysql",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "books_user",
+    "password": "password",
+    "database": "books",
+    "host": "mysql",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
