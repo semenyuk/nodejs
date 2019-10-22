@@ -6,6 +6,7 @@ const router = Router();
 
 
 router.get('/api/v1/books', book.getAll);
+router.get('/api/v1/books/:id', book.get);
 
 router.get('/', (req, res) => res.send('Hello World!'));
 

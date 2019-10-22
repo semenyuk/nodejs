@@ -23,10 +23,28 @@
     },
     "/api/v1/books": {
       "get": {
-        "summary": "books",
+        "summary": "Get all books",
         "responses": {
           "200": {}
         }
+      }
+    },
+    "/api/v1/books/{bookId}": {
+      "get": {
+        "summary": "Get book by id",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bookId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
       }
     }
   }
