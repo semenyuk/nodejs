@@ -11,7 +11,7 @@ module.exports = {
       book_id: {
         type: Sequelize.INTEGER
       },
-      user_id: {
+      author_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {
