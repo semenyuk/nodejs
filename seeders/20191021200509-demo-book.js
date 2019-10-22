@@ -56,11 +56,50 @@ module.exports = {
         updatedAt: new Date()
       },
     ], {}),
+    queryInterface.bulkInsert('Genres', [
+      {
+        name: 'Genre1',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Genre2',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Genre3',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {}),
+    queryInterface.bulkInsert('BookToGenres', [
+      {
+        book_id: 1,
+        genre_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        book_id: 2,
+        genre_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        book_id: 3,
+        genre_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {}),
   ]),
 
   down: (queryInterface) => Promise.all([
     queryInterface.bulkDelete('Books', null, {}),
     queryInterface.bulkDelete('Authors', null, {}),
+    queryInterface.bulkDelete('Genres', null, {}),
     queryInterface.bulkDelete('BookToAuthors', null, {}),
+    queryInterface.bulkDelete('BookToGenres', null, {}),
   ])
 };

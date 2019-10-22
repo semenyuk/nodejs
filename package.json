@@ -8,8 +8,7 @@
     "start": "NODE_ENV=development nodemon ./src/app.js",
     "build": "NODE_ENV=production node ./src/app.js",
     "db:migrate": "sequelize db:migrate",
-    "db:seed": "sequelize db:seed:all",
-    "db:seed:undo:all": "sequelize db:seed:undo:all"
+    "db:seed": "sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
