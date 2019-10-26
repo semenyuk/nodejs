@@ -1,5 +1,6 @@
 FROM node:10
-WORKDIR ./src
+
+WORKDIR /usr/src/node-app
 COPY package*.json ./
 RUN npm install --no-save
 COPY . .

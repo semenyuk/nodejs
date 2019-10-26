@@ -4,7 +4,6 @@ services:
   node-app:
     build: .
     container_name: node-app
-    command: npm run start
     depends_on:
       - mysql
     environment:
@@ -12,8 +11,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - .:/src
-      - /node_modules/
+      - .:/usr/src/node-app
+      - /usr/src/node-app/node_modules/
     networks:
       - app-network
   mysql:
