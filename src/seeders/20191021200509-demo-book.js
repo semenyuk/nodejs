@@ -93,6 +93,46 @@ module.exports = {
         updatedAt: new Date()
       },
     ], {}),
+    queryInterface.bulkInsert('Users', [
+      {
+        name: "User1",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: "User1",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: "User1",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {}),
+    queryInterface.bulkInsert('Ratings', [
+      {
+        book_id: 1,
+        user_id: 1,
+        rating: 10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        book_id: 2,
+        user_id: 2,
+        rating: 7,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        book_id: 2,
+        user_id: 2,
+        rating: 9,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {}),
   ]),
 
   down: (queryInterface) => Promise.all([
@@ -101,5 +141,7 @@ module.exports = {
     queryInterface.bulkDelete('Genres', null, {}),
     queryInterface.bulkDelete('BookToAuthors', null, {}),
     queryInterface.bulkDelete('BookToGenres', null, {}),
+    queryInterface.bulkDelete('Users', null, {}),
+    queryInterface.bulkDelete('Ratings', null, {}),
   ])
 };
