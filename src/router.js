@@ -7,6 +7,8 @@ const router = Router();
 
 router.get('/api/v1/books', book.getAll);
 router.get('/api/v1/books/:id', book.get);
+router.get('/api/v1/books/author/:id', book.getByAuthor);
+router.get('/api/v1/books/rating/:rating', book.getByRating);
 
 router.get('/', (req, res) => res.send('Hello World!'));
 

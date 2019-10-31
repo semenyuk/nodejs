@@ -46,6 +46,42 @@
           }
         ]
       }
+    },
+    "/api/v1/books/author/{authorId}": {
+      "get": {
+        "summary": "Get book by authorId",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "authorId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/books/rating/{rating}": {
+      "get": {
+        "summary": "Get book by rating",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rating",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
     }
   }
 }
