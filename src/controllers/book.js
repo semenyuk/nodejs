@@ -18,5 +18,9 @@ module.exports = {
         where: {
             '$ratings.rating$': Number(req.params.rating),
         }
-    }).then((data) => res.send(data))
+    }).then((data) => res.send(data)),
+    create: (req, res) => {
+        Book.create({ name: req.body.name })
+            .then((newBook) => res.send(newBook))
+    }
 };

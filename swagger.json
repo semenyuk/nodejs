@@ -27,6 +27,29 @@
         "responses": {
           "200": {}
         }
+      },
+      "post": {
+        "summary": "Create book",
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {}
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/books/{bookId}": {
