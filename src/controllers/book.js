@@ -22,5 +22,8 @@ module.exports = {
     create: (req, res) => {
         Book.create({ name: req.body.name })
             .then((newBook) => res.send(newBook))
-    }
+    },
+    delete: (req, res) => Book.findByPk(Number(req.params.id))
+        .then((book) => book.destroy())
+        .then((data) => res.send(data)),
 };

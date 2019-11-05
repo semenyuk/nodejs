@@ -68,6 +68,22 @@
             }
           }
         ]
+      },
+      "delete": {
+        "summary": "Delete book by id",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bookId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
       }
     },
     "/api/v1/books/author/{authorId}": {
