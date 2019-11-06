@@ -86,6 +86,41 @@
         ]
       }
     },
+    "/api/v1/books/{bookId}/rate": {
+      "post": {
+        "summary": "Rate book by id",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bookId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "rating": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/books/author/{authorId}": {
       "get": {
         "summary": "Get book by authorId",
