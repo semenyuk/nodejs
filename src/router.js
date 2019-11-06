@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { Router } = require('express');
 const book = require('./controllers/book');
+const user = require('./controllers/user');
 
 const router = Router();
 
@@ -12,6 +13,8 @@ router.post('/api/v1/books/:id/rate', book.rate);
 router.delete('/api/v1/books/:id', book.delete);
 router.get('/api/v1/books/author/:id', book.getByAuthor);
 router.get('/api/v1/books/rating/:rating', book.getByRating);
+
+router.post('/api/v1/users', user.create);
 
 router.get('/', (req, res) => res.send('Hello World!'));
 
