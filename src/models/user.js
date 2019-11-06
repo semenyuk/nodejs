@@ -11,17 +11,16 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: (user) => {
         user.salt = crypto.randomBytes(16).toString('base64');
-
-        user.encryptPassword()
+        user.password = User.encryptPassword(user.salt, user.password)
       }
     }
   });
 
-  User.prototype.encryptPassword = function () {
-    this.password = crypto
+  User.encryptPassword = function (password, salt) {
+    return  crypto
         .createHash('RSA-SHA256')
-        .update(this.password)
-        .update(this.salt)
+        .update(password)
+        .update(salt)
         .digest('hex')
   };
 
