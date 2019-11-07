@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
         .digest('hex')
   };
 
+  User.prototype.isValidPassword = function(password) {
+    return User.encryptPassword(this.salt, password) === this.password
+  };
+
   User.associate = function(models) {
     User.hasMany(models.Rating, {
       as: 'ratings',
