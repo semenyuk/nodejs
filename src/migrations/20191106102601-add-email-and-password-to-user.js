@@ -2,11 +2,11 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.addColumn('Users', 'password', {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
       })
       .then(() => queryInterface.addColumn('Users', 'email', {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true
       }))

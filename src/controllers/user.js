@@ -21,7 +21,7 @@ module.exports = {
 
                 const token = auth.generateToken({ id: user.id });
 
-                res.send(token)
+                res.cookie('access_token', token).send(token)
             })
     }
 };

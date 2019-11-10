@@ -1,12 +1,19 @@
 const { User } = require('../models');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const { ExtractJwt, Strategy } = require('passport-jwt');
+const { Strategy } = require('passport-jwt');
 const config = require('./config.js');
 
 const params = {
     secretOrKey: config.jwtSecret,
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+    jwtFromRequest: function(req) {
+        if (req && req.cookies)
+        {
+            return req.cookies['access_token'];
+        }
+
+        return null;
+    }
 };
 
 const strategy = new Strategy(params, function(payload, done) {
