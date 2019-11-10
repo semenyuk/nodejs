@@ -1,4 +1,4 @@
-const { Book } = require('../models');
+const { Book, Rating } = require('../models');
 
 module.exports = {
     getAll: (req, res) => Book.findAll({
@@ -33,7 +33,6 @@ module.exports = {
             id: Number(req.params.id)
         }
     }).then(() => res.send('ok')),
-    rate: (req, res) => Book.findByPk(Number(req.params.id))
-        .then((book) => book.addRatings(2))
-        .then((data) => res.send(data)),
+    rate: (req, res) => Rating.create({ ...req.body, book_id: Number(req.params.id) })
+        .then(() => res.send('ok')),
 };
