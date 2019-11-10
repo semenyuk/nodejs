@@ -28,4 +28,12 @@ module.exports = {
             id: Number(req.params.id)
         }
     }).then(() => res.send('ok')),
+    update: (req, res) => Book.update(req.body, {
+        where: {
+            id: Number(req.params.id)
+        }
+    }).then(() => res.send('ok')),
+    rate: (req, res) => Book.findByPk(Number(req.params.id))
+        .then((book) => book.addRatings(2))
+        .then((data) => res.send(data)),
 };

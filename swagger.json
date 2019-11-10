@@ -84,6 +84,74 @@
             }
           }
         ]
+      },
+      "put": {
+        "summary": "Update book by id",
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bookId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/books/{bookId}/rate": {
+      "post": {
+        "summary": "Add book rate",
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "bookId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/books/author/{authorId}": {
