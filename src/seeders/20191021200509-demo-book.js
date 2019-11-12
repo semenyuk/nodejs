@@ -132,8 +132,8 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        book_id: 2,
-        user_id: 2,
+        book_id: 3,
+        user_id: 3,
         rating: 9,
         createdAt: new Date(),
         updatedAt: new Date()
