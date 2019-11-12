@@ -28,7 +28,7 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-    console.error('\x1b[31m', err.stack);
+    console.error(err.stack);
     res.status(500).send(process.env.NODE_ENV === 'development' ? err.stack : err.message);
 });
 

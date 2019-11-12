@@ -1,8 +1,7 @@
-'use strict';
+const { User } = require('../models');
 
 module.exports = {
-  up: (queryInterface) => Promise.all([
-    queryInterface.bulkInsert('Books', [
+  up: (queryInterface) => queryInterface.bulkInsert('Books', [
       {
         name: 'Book1',
         createdAt: new Date(),
@@ -18,8 +17,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('Authors', [
+    ], {})
+    .then(() => queryInterface.bulkInsert('Authors', [
       {
         name: 'Author1',
         createdAt: new Date(),
@@ -35,8 +34,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('BookToAuthors', [
+    ], {}))
+    .then(() => queryInterface.bulkInsert('BookToAuthors', [
       {
         book_id: 1,
         author_id: 1,
@@ -55,8 +54,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('Genres', [
+    ], {})
+    .then(() => queryInterface.bulkInsert('Genres', [
       {
         name: 'Genre1',
         createdAt: new Date(),
@@ -72,8 +71,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('BookToGenres', [
+    ], {})))
+    .then(() => queryInterface.bulkInsert('BookToGenres', [
       {
         book_id: 1,
         genre_id: 1,
@@ -92,31 +91,25 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('Users', [
+    ], {}))
+    .then(() => User.bulkCreate([
       {
         name: "User1",
         email: "qwe1@mail.com",
         password: "password1",
-        createdAt: new Date(),
-        updatedAt: new Date()
       },
       {
         name: "User2",
         email: "qwe2@mail.com",
         password: "password2",
-        createdAt: new Date(),
-        updatedAt: new Date()
       },
       {
         name: "User3",
         email: "qwe3@mail.com",
         password: "password3",
-        createdAt: new Date(),
-        updatedAt: new Date()
       },
-    ], {}),
-    queryInterface.bulkInsert('Ratings', [
+    ], { individualHooks: true }))
+    .then(() => queryInterface.bulkInsert('Ratings', [
       {
         book_id: 1,
         user_id: 1,
@@ -138,8 +131,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-    ], {}),
-  ]),
+    ], {})),
 
   down: (queryInterface) => Promise.all([
     queryInterface.bulkDelete('Books', null, {}),
