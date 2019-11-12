@@ -1,7 +1,7 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const router = require('./router');
 const auth = require('./auth/auth');
 const swaggerDocument = require('../swagger.json');
@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(auth.initialize());
 
 app.use((req, res, next) => {
-    console.log(req.method, req.url);
+    console.log(process.env.APP_NAME, req.method, req.url);
     next();
 });
 
