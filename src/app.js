@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(auth.initialize());
 
 app.use((req, res, next) => {
-    console.log(process.env.APP_NAME, req.method, req.url);
+    console.log(req.method, req.url);
     next();
 });
 

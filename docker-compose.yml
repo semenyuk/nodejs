@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   node-app1:
     build: .
     container_name: node-app1
@@ -8,7 +9,6 @@ services:
       - mysql
     environment:
       DB_HOST: mysql
-      APP_NAME: 'app-1'
     ports:
       - "8081:8080"
     volumes:
@@ -16,6 +16,7 @@ services:
       - /usr/src/node-app/node_modules/
     networks:
       - app-network
+
   node-app2:
     build: .
     container_name: node-app2
@@ -31,15 +32,20 @@ services:
       - /usr/src/node-app/node_modules/
     networks:
       - app-network
+
   nginx:
     image: nginx:1.17.5
     container_name: nginx
+    depends_on:
+      - node-app1
+      - node-app2
     ports:
       - "8080:8080"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - app-network
+
   mysql:
     image: mysql:5
     container_name: mysql
