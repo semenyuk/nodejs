@@ -20,6 +20,7 @@ router.get('/api/v1/books/rating/:rating', book.getByRating);
 
 router.post('/api/v1/users', user.create);
 router.post('/api/v1/login', user.login);
+router.get('/api/v1/logout', user.logout);
 
 router.get('/', (req, res) => res.send('Hello World!'));
 

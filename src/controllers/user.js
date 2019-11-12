@@ -23,5 +23,6 @@ module.exports = {
 
                 res.cookie('access_token', token).send(token)
             })
-    }
+    },
+    logout: (req, res) => res.clearCookie('access_token').send('ok')
 };

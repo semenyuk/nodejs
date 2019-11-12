@@ -83,6 +83,14 @@
         }
       }
     },
+    "/api/v1/logout": {
+      "get": {
+        "summary": "Logout",
+        "responses": {
+          "200": {}
+        }
+      }
+    },
     "/api/v1/books": {
       "get": {
         "summary": "Get all books",
